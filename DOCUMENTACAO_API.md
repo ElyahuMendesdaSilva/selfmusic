@@ -369,47 +369,7 @@ Todas exigem `admin`.
 2. Envie o access token em `POST /admin/music/upload` como multipart `file`.
 3. Leia a música retornada e use `GET /songs/` ou streaming pelo `id`.
 
-### Exemplo web (JavaScript/React)
-
-O exemplo abaixo funciona em uma página web; `selectedFile` é o primeiro arquivo escolhido em um `<input type="file" accept="audio/mpeg,.mp3">`. O token deve ser o `access_token` do login de um administrador.
-
-```js
-async function uploadMusic(selectedFile, accessToken) {
-  if (!selectedFile) throw new Error("Escolha um arquivo MP3.");
-
-  const form = new FormData();
-  form.append("file", selectedFile, selectedFile.name);
-
-  const response = await fetch("http://localhost:8000/admin/music/upload", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${accessToken}` },
-    body: form,
-  });
-
-  const body = await response.json();
-  if (!response.ok) throw new Error(body.detail || "Não foi possível enviar a música.");
-  return body; // Song: use body.id, body.title e body.thumbnail_url
-}
-```
-
-Em React, uma implementação mínima do seletor é:
-
-```jsx
-<input
-  type="file"
-  accept="audio/mpeg,.mp3"
-  onChange={async (event) => {
-    try {
-      const song = await uploadMusic(event.target.files?.[0], accessToken);
-      console.log("Música enviada:", song);
-    } catch (error) {
-      setError(error.message);
-    }
-  }}
-/>
-```
-
-### Exemplo mobile (React Native / Expo)
+### Exemplo Android (React Native / Expo)
 
 Após selecionar um arquivo com `expo-document-picker`, envie `uri`, `name` e `mimeType` no `FormData`. Em Android, use a URL da API acessível pelo aparelho/emulador — `localhost` aponta para o próprio celular, não para seu computador.
 
@@ -439,7 +399,7 @@ async function chooseAndUpload(accessToken) {
 }
 ```
 
-Para os dois clientes, mostre a mensagem `detail` em caso de erro e atualize a lista chamando `GET /songs/` após o retorno bem-sucedido. Não inclua o token em URLs ou logs.
+Mostre a mensagem `detail` em caso de erro e atualize a lista chamando `GET /songs/` após o retorno bem-sucedido. Não inclua o token em URLs ou logs.
 
 ### Administrador criando playlist por pasta
 

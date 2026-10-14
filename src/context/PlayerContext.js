@@ -63,7 +63,7 @@ export function PlayerProvider({ children }) {
           interruptionMode: 'doNotMix',
         });
       } catch {
-        // Modo de áudio indisponível (ex.: web) — segue com o comportamento padrão.
+        // Se o modo de áudio não estiver disponível, segue com o comportamento padrão.
       }
     }
     configureAudio();

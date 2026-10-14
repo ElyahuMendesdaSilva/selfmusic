@@ -1,6 +1,6 @@
 # SelfMusic
 
-Aplicativo de música para Android, iOS e web, desenvolvido com React Native e Expo. O SelfMusic se conecta a uma API compatível para autenticação, biblioteca, playlists e reprodução de áudio.
+Aplicativo de música exclusivo para Android, desenvolvido com React Native e Expo. O SelfMusic se conecta a uma API compatível para autenticação, biblioteca, playlists e reprodução de áudio.
 
 > Este repositório contém o aplicativo cliente. A API e os arquivos de música são mantidos pelo servidor configurado no app.
 
@@ -26,7 +26,7 @@ Aplicativo de música para Android, iOS e web, desenvolvido com React Native e E
 ## Requisitos
 
 - Node.js e npm
-- Um dispositivo ou emulador para Android/iOS, ou um navegador para web
+- Um dispositivo Android ou emulador Android
 - Uma instância acessível da API usada pelo aplicativo
 
 ## Instalação e execução
@@ -47,8 +47,6 @@ Também estão disponíveis os atalhos:
 
 ```bash
 npm run android
-npm run ios
-npm run web
 ```
 
 Os módulos nativos de áudio e controles de mídia podem exigir um development build ou uma build nativa do EAS. O Expo Go pode não incluir todos os módulos usados pelo projeto.

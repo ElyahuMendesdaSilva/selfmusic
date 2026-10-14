@@ -7,13 +7,6 @@ module.exports = ({ config }) => {
       ...(next.plugins || []),
       ['expo-build-properties', { android: { usesCleartextTraffic: true } }],
     ];
-    next.ios = {
-      ...next.ios,
-      infoPlist: {
-        ...next.ios?.infoPlist,
-        NSAppTransportSecurity: { NSAllowsArbitraryLoads: true },
-      },
-    };
   }
   return next;
 };

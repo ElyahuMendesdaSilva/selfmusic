@@ -6,7 +6,6 @@ node_modules/
 # Expo
 .expo/
 dist/
-web-build/
 expo-env.d.ts
 
 # Native
@@ -40,6 +39,5 @@ yarn-error.*
 *.tsbuildinfo
 
 # generated native folders
-/ios
 /android
 build/

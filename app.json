@@ -4,6 +4,7 @@
     "slug": "app-de-musica",
     "version": "1.0.0",
     "orientation": "portrait",
+    "platforms": ["android"],
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
     "plugins": [
@@ -23,10 +24,6 @@
         }
       ]
     ],
-    "ios": {
-      "supportsTablet": true,
-      "infoPlist": {}
-    },
     "android": {
       "permissions": [
         "android.permission.POST_NOTIFICATIONS",
@@ -41,9 +38,6 @@
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "package": "com.elyahu_1516.appdemusica"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {

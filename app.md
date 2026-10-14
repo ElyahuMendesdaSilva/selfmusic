@@ -101,8 +101,8 @@ music_api/
 
 **Sim, com o endpoint de streaming (`GET /songs/{id}/stream`) adicionado nesta versão.**
 Antes disso, a API só baixava e organizava os arquivos — não existia nenhuma forma do app
-cliente reproduzir o áudio. Agora qualquer player (web, mobile, desktop) pode apontar para
-essa URL e tocar a música normalmente, com suporte a avançar/voltar na faixa (`Range`).
+cliente Android reproduzir o áudio. O app pode apontar para essa URL e tocar a música
+normalmente, com suporte a avançar/voltar na faixa (`Range`).
 
 O que **ainda não existe** e você pode querer adicionar depois, dependendo do app:
 - Histórico de reprodução / "escutado recentemente"
@@ -663,14 +663,10 @@ parâmetro `limit` já vem preenchido com `20` — basta escolher o valor e clic
 - Para reproduzir uma música do feed, pegue o `id` e chame `GET /songs/{id}/stream` com
   o mesmo token.
 
-O endpoint de streaming é o que permite o app realmente **tocar** a música: ele lê o
-arquivo em pedaços de 1 MB e responde a requisições `Range` (usadas por qualquer player
-de áudio/vídeo em HTML, iOS, Android etc. para pular pra qualquer ponto da faixa sem
-baixar o arquivo inteiro primeiro). Um `<audio src="http://SEU_IP:8000/songs/12/stream">`
-no seu app já funciona, desde que o header `Authorization: Bearer <token>` seja enviado
-(a maioria dos players de app mobile permite configurar headers customizados; em HTML puro
-isso normalmente exige buscar o arquivo via `fetch` com o header e criar um Blob, já que a
-tag `<audio>` sozinha não manda headers customizados).
+O endpoint de streaming é o que permite o app Android **tocar** a música: ele lê o
+arquivo em pedaços de 1 MB e responde a requisições `Range`, permitindo pular para qualquer
+ponto da faixa sem baixar o arquivo inteiro. O app envia o header
+`Authorization: Bearer <token>` junto com a requisição.
 
 ---
 
@@ -711,12 +707,12 @@ tag `<audio>` sozinha não manda headers customizados).
 
 ### Conexão do app React Native com a API
 
-- O app usa `EXPO_PUBLIC_API_URL` (definida no `.env` da raiz do app) como base de todas
-  as chamadas; o valor é embutido no bundle na hora do build — depois de mudar, é preciso
-  rebuildar o APK/IPA.
+- O app Android usa `EXPO_PUBLIC_API_URL` (definida no `.env` da raiz do app) como base de
+  todas as chamadas; o valor é embutido no bundle na hora do build — depois de mudar, é
+  preciso gerar um novo APK.
 - Builds release do Android 9+ **bloqueiam** conexões `http://` por padrão (cleartext).
   Para testes locais, o `app.json` do app libera com `expo-build-properties` →
-  `android.usesCleartextTraffic: true` (e no iOS, `NSAllowsArbitraryLoads` no `infoPlist`).
+  `android.usesCleartextTraffic: true`.
 - Em produção, exponha a API por HTTPS (reverse proxy) e aponte `EXPO_PUBLIC_API_URL`
   para `https://...` — assim o app não depende de liberar cleartext nem de IP de LAN.
 
@@ -725,7 +721,7 @@ tag `<audio>` sozinha não manda headers customizados).
 ## 7. Extensões que adicionei (sinta-se à vontade para remover)
 
 - **Login por e-mail** (em vez de username), com autenticação via `HTTPBearer` (JSON puro,
-  mais simples de integrar em apps mobile/web do que o fluxo OAuth2 padrão).
+  integrado ao app Android).
 - **Streaming de áudio com suporte a `Range`** (`GET /songs/{id}/stream`), essencial para o
   app conseguir tocar as músicas de fato (play, pause, avançar/voltar na faixa).
 - **Deduplicação de músicas**: se a mesma música aparece em playlists diferentes (mesmo de

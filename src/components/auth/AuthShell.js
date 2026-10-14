@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { KeyboardAvoidingView, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Ionicons from '@react-native-vector-icons/ionicons';
 import { useTheme } from '../../context/ThemeContext';
 import { withAlpha } from '../../theme/themes';
@@ -11,8 +11,7 @@ export default function AuthShell({ title, subtitle, children, onOpenApiSettings
   return (
     <KeyboardAvoidingView
     style={styles.flex}
-    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-    keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 0}
+    behavior="height"
     >
     <ScrollView
     style={styles.flex}
