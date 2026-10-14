@@ -55,7 +55,7 @@ Os módulos nativos de áudio e controles de mídia podem exigir um development 
 
 ## Configuração da API
 
-Por padrão, o app usa `https://musicapi.elyahu.qzz.io`. Você pode trocar o endereço na tela de login ou em **Configurações → Conexão** dentro do app.
+A API do projeto está em [selfmusic-api](https://github.com/ElyahuMendesdaSilva/selfmusic-api). O app não define um endereço de API padrão. Configure a URL na tela de login ou em **Configurações → Conexão** dentro do app.
 
 Para definir um endereço padrão durante o desenvolvimento, crie `.env` na raiz:
 

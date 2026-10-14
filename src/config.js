@@ -14,7 +14,7 @@
 // 9+ bloqueiam http:// por padrão — o app.json já libera (usesCleartextTraffic)
 // para testes locais; em produção, use HTTPS.
 
-export const DEFAULT_API_URL = (process.env.EXPO_PUBLIC_API_URL || 'https://musicapi.elyahu.qzz.io').replace(/\/+$/, '');
+export const DEFAULT_API_URL = (process.env.EXPO_PUBLIC_API_URL || '').replace(/\/+$/, '');
 
 export function normalizeApiUrl(value) {
   const url = String(value || '').trim().replace(/\/+$/, '');
@@ -33,5 +33,5 @@ export function getApiBaseUrl() {
 
 // Atualizada pelo ApiConfigProvider antes de a autenticação restaurar a sessão.
 export function setApiBaseUrl(value) {
-  currentApiBaseUrl = normalizeApiUrl(value);
+  currentApiBaseUrl = value ? normalizeApiUrl(value) : '';
 }
