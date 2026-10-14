@@ -1,0 +1,28 @@
+{
+  "brand": "SelfMusic",
+  "brief": "Identidade para um app Android de música pessoal. O símbolo Sintoniza une uma letra S contínua à ideia de sintonia individual. Prioridades: leitura rápida, clareza em tamanhos de launcher e reprodução monocromática.",
+  "adjectives": ["pessoal", "expressivo", "simples"],
+  "industry": "consumer-app",
+  "brand_color": "#6D5CE8",
+  "tile_color": "#6D5CE8",
+  "greyscale": false,
+  "final": true,
+  "mockups": ["app-icon", "social", "sticker", "readme", "business-card", "website"],
+  "concepts": [
+    {
+      "name": "Sintoniza",
+      "symbol": "masters/symbol.svg",
+      "lockup": "masters/horizontal.svg",
+      "stacked": "masters/stacked.svg",
+      "avatar": "exports/selfmusic-app-icon.svg",
+      "symbol_on_tile": "exports/selfmusic-app-icon.svg",
+      "lockup_on_dark": "exports/lockups/horizontal-white.svg",
+      "idea": "Um S contínuo transforma a inicial em gesto de sintonia.",
+      "rationale": [
+        "A letra inicial cria um atalho visual direto para SelfMusic.",
+        "A silhueta simples permanece forte em uma cor e nos tamanhos pequenos do Android."
+      ]
+    }
+  ],
+  "recommendation": "A direção Sintoniza foi escolhida e refinada como identidade final do SelfMusic."
+}

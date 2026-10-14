@@ -3,10 +3,24 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "expo": "~57.0.28",
+    "@expo/material-symbols": "^0.1.1",
+    "@expo/ui": "~57.0.9",
+    "@react-native-community/slider": "5.2.0",
+    "@react-native-vector-icons/ionicons": "^13.1.2",
+    "expo": "~57.0.11",
+    "expo-audio": "~57.0.3",
+    "expo-build-properties": "~57.0.9",
+    "expo-constants": "~57.0.9",
+    "expo-font": "~57.0.1",
+    "expo-media-control": "^2.1.0",
+    "expo-secure-store": "~57.0.1",
     "expo-status-bar": "~57.0.1",
+    "expo-updates": "~57.0.26",
     "react": "19.2.3",
-    "react-native": "0.86.3"
+    "react-dom": "19.2.3",
+    "react-native": "0.86.2",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-web": "^0.21.2"
   },
   "scripts": {
     "start": "expo start",
